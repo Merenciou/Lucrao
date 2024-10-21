@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucrao/controllers/custom_navbar_controller.dart';
 
 class CustomNavbar extends StatefulWidget {
   const CustomNavbar({super.key});
@@ -23,15 +24,20 @@ class _CustomNavbarState extends State<CustomNavbar> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
               onPressed: () {
+                CustomNavbarController.instance.routeSettings();
                 Navigator.of(context).pushNamed('/settingspage');
               },
               style: IconButton.styleFrom(
-                backgroundColor: const Color(0xFFDEE5D4),
+                backgroundColor:
+                    CustomNavbarController.instance.navItemIndex == 0
+                        ? const Color(0xFFDEE5D4)
+                        : const Color(0xFFEEDF7A),
               ),
-              icon: const Icon(
+              icon: Icon(
                 Icons.settings_rounded,
-                size: 50,
-                color: Color(0xFF000000),
+                size:
+                    CustomNavbarController.instance.navItemIndex == 0 ? 60 : 50,
+                color: const Color(0xFF000000),
               ),
             ),
           ),
@@ -39,15 +45,20 @@ class _CustomNavbarState extends State<CustomNavbar> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
               onPressed: () {
+                CustomNavbarController.instance.routeHome();
                 Navigator.of(context).pushNamed('/homepage');
               },
               style: IconButton.styleFrom(
-                backgroundColor: const Color(0xFFDEE5D4),
+                backgroundColor:
+                    CustomNavbarController.instance.navItemIndex == 1
+                        ? const Color(0xFFDEE5D4)
+                        : const Color(0xFFEEDF7A),
               ),
-              icon: const Icon(
+              icon: Icon(
                 Icons.home_rounded,
-                size: 50,
-                color: Color(0xFF000000),
+                size:
+                    CustomNavbarController.instance.navItemIndex == 1 ? 60 : 50,
+                color: const Color(0xFF000000),
               ),
             ),
           ),
@@ -55,15 +66,20 @@ class _CustomNavbarState extends State<CustomNavbar> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
               onPressed: () {
+                CustomNavbarController.instance.routeAlert();
                 Navigator.of(context).pushNamed('/alertspage');
               },
               style: IconButton.styleFrom(
-                backgroundColor: const Color(0xFFDEE5D4),
+                backgroundColor:
+                    CustomNavbarController.instance.navItemIndex == 2
+                        ? const Color(0xFFDEE5D4)
+                        : const Color(0xFFEEDF7A),
               ),
-              icon: const Icon(
+              icon: Icon(
                 Icons.notifications_rounded,
-                size: 50,
-                color: Color(0xFF000000),
+                size:
+                    CustomNavbarController.instance.navItemIndex == 2 ? 60 : 50,
+                color: const Color(0xFF000000),
               ),
             ),
           ),
