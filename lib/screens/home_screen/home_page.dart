@@ -5,7 +5,15 @@ import 'package:lucrao/components/charts/gain_weekly_chart.dart';
 import 'package:lucrao/components/navbar/custom_navbar.dart';
 import 'package:lucrao/controllers/chart_temporal_controller.dart';
 
-const List<String> fuelList = <String>['Semanal', 'Mensal'];
+const List<String> gainTemporal = <String>['Semanal', 'Mensal'];
+const List<String> gainAlternativeText = <String>[
+  'Lucro Diário',
+  'Lucro Mensal',
+];
+const List<String> gainAlternativeValue = <String>[
+  'R\$100',
+  'R\$2500',
+];
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +23,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String dropdownValue = fuelList.first;
+  String dropdownValue = gainTemporal.first;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                       dropdownColor: const Color(0xFFDEE5D4),
                       isExpanded: true,
-                      items: fuelList
+                      items: gainTemporal
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -120,12 +128,16 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        'Lucro de Hoje:',
+                        ChartTemporalController.instance.chartIndex == 0
+                            ? gainAlternativeText[0]
+                            : gainAlternativeText[1],
                         style: GoogleFonts.montserrat(
                             fontSize: 17, fontWeight: FontWeight.w400),
                       ),
                       Text(
-                        'R\$500,00',
+                        ChartTemporalController.instance.chartIndex == 0
+                            ? gainAlternativeValue[0]
+                            : gainAlternativeValue[1],
                         style: GoogleFonts.montserrat(
                             fontSize: 17, fontWeight: FontWeight.w600),
                       ),
