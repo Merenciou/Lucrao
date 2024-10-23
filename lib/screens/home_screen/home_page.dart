@@ -124,24 +124,27 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Color(0xFFDEE5D4),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        ChartTemporalController.instance.chartIndex == 0
-                            ? gainAlternativeText[0]
-                            : gainAlternativeText[1],
-                        style: GoogleFonts.montserrat(
-                            fontSize: 17, fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        ChartTemporalController.instance.chartIndex == 0
-                            ? gainAlternativeValue[0]
-                            : gainAlternativeValue[1],
-                        style: GoogleFonts.montserrat(
-                            fontSize: 17, fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          ChartTemporalController.instance.chartIndex == 0
+                              ? gainAlternativeText[0]
+                              : gainAlternativeText[1],
+                          style: GoogleFonts.montserrat(
+                              fontSize: 17, fontWeight: FontWeight.w400),
+                        ),
+                        Text(
+                          ChartTemporalController.instance.chartIndex == 0
+                              ? gainAlternativeValue[0]
+                              : gainAlternativeValue[1],
+                          style: GoogleFonts.montserrat(
+                              fontSize: 17, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
