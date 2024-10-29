@@ -180,7 +180,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: const EdgeInsets.only(top: 42),
                   child: Align(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/resultpage');
+                      },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(200, 50),
                         backgroundColor: const Color(0xFF78B7D0),
