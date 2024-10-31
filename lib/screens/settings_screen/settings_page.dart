@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucrao/components/navbar/custom_navbar.dart';
 
-const List<String> fuelList = <String>[
-  'Gasolina',
-  'Etanol',
-  'Diesel',
-];
-
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
@@ -16,8 +10,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  String dropdownValue = fuelList.first;
   GlobalKey formKeyFuelType = GlobalKey<FormState>();
+  GlobalKey formKeyKmTraveled = GlobalKey<FormState>();
   GlobalKey formKeyFuelPrice = GlobalKey<FormState>();
   GlobalKey formKeyAppRacePrice = GlobalKey<FormState>();
 
@@ -50,44 +44,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
-                  child: Container(
-                    width: double.infinity,
-                    height: 56,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFDEE5D4),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 6),
-                      child: DropdownButton(
-                        value: dropdownValue,
-                        underline: const SizedBox(
-                          width: double.infinity,
-                          height: 0,
+                  child: Form(
+                    key: formKeyFuelType,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0xFFDEE5D4),
+                        label: const Text('Quantos quilomêtros/litro?'),
+                        labelStyle: GoogleFonts.montserrat(),
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
                         ),
-                        style: GoogleFonts.montserrat(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        dropdownColor: const Color(0xFFDEE5D4),
-                        isExpanded: true,
-                        items: fuelList
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            dropdownValue = value!;
-                          });
-                        },
                       ),
                     ),
                   ),
@@ -103,7 +73,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Form(
-                    key: formKeyFuelType,
+                    key: formKeyKmTraveled,
                     child: TextFormField(
                       decoration: InputDecoration(
                         filled: true,
