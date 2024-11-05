@@ -3,6 +3,7 @@ import 'package:lucrao/controllers/custom_navbar_controller.dart';
 import 'package:lucrao/screens/alerts_screen/alerts_page.dart';
 import 'package:lucrao/screens/home_screen/home_page.dart';
 import 'package:lucrao/screens/settings_screen/result_page.dart';
+import 'package:lucrao/screens/settings_screen/settings_functions.dart';
 import 'package:lucrao/screens/settings_screen/settings_page.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,10 @@ void main() {
       providers: [
         Provider<CustomNavbarController>(
           create: (_) => CustomNavbarController(),
-        )
+        ),
+        Provider<SettingsFunctions>(
+          create: (_) => SettingsFunctions(),
+        ),
       ],
       child: const MainApp(),
     ),

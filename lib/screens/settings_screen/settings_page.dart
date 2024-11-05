@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucrao/components/navbar/custom_navbar.dart';
+import 'package:lucrao/screens/settings_screen/settings_functions.dart';
+
+TextEditingController kmPerLiterController = TextEditingController();
+TextEditingController kmTraveledController = TextEditingController();
+TextEditingController fuelPriceController = TextEditingController();
+TextEditingController raceAppController = TextEditingController();
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -10,10 +16,20 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  GlobalKey formKeyFuelType = GlobalKey<FormState>();
-  GlobalKey formKeyKmTraveled = GlobalKey<FormState>();
-  GlobalKey formKeyFuelPrice = GlobalKey<FormState>();
-  GlobalKey formKeyAppRacePrice = GlobalKey<FormState>();
+  final formKeyKmPerLiter = GlobalKey<FormState>();
+  final formKeyKmTraveled = GlobalKey<FormState>();
+  final formKeyFuelPrice = GlobalKey<FormState>();
+  final formKeyRaceAppPrice = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    // kmPerLiterController.dispose();
+    // kmTraveledController.dispose();
+    // fuelPriceController.dispose();
+    // raceAppController.dispose();
+    // print('disposed');
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +61,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Form(
-                    key: formKeyFuelType,
+                    key: formKeyKmPerLiter,
                     child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, preencha este campo!';
+                        }
+                        return null;
+                      },
+                      controller: kmPerLiterController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFDEE5D4),
@@ -75,6 +98,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Form(
                     key: formKeyKmTraveled,
                     child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, preencha este campo!';
+                        }
+                        return null;
+                      },
+                      controller: kmTraveledController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFDEE5D4),
@@ -103,6 +133,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Form(
                     key: formKeyFuelPrice,
                     child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, preencha este campo!';
+                        }
+                        return null;
+                      },
+                      controller: fuelPriceController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFDEE5D4),
@@ -129,8 +166,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Form(
-                    key: formKeyAppRacePrice,
+                    key: formKeyRaceAppPrice,
                     child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, preencha este campo!';
+                        }
+                        return null;
+                      },
+                      controller: raceAppController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0xFFDEE5D4),
@@ -151,7 +195,18 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Align(
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).pushNamed('/resultpage');
+                        if (formKeyKmPerLiter.currentState!.validate() &&
+                            formKeyKmTraveled.currentState!.validate() &&
+                            formKeyFuelPrice.currentState!.validate() &&
+                            formKeyRaceAppPrice.currentState!.validate()) {
+                          SettingsFunctions.instance.getKmPerLiter();
+                          SettingsFunctions.instance.getKmTravelled();
+                          SettingsFunctions.instance.getFuelPrice();
+                          SettingsFunctions.instance.getRaceAppPrice();
+                          SettingsFunctions.instance.raceCalc();
+                          SettingsFunctions.instance.resultText();
+                          Navigator.of(context).pushNamed('/resultpage');
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(200, 50),
