@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucrao/components/navbar/custom_navbar.dart';
+import 'package:lucrao/screens/settings_screen/settings_functions.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key});
@@ -59,7 +60,8 @@ class _ResultPageState extends State<ResultPage> {
                             style: GoogleFonts.montserrat(fontSize: 20),
                           ),
                           Text(
-                            'R\$6,36',
+                            'R\$${SettingsFunctions.instance.gainRace}'
+                                .replaceAll('.', ','),
                             style: GoogleFonts.montserrat(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -68,7 +70,7 @@ class _ResultPageState extends State<ResultPage> {
                             style: GoogleFonts.montserrat(fontSize: 20),
                           ),
                           Text(
-                            '60%',
+                            '${SettingsFunctions.instance.percentageGainRace}%',
                             style: GoogleFonts.montserrat(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -80,7 +82,7 @@ class _ResultPageState extends State<ResultPage> {
                       style: GoogleFonts.montserrat(fontSize: 18),
                     ),
                     Text(
-                      'Boa',
+                      '${SettingsFunctions.instance.gainMargin}',
                       style: GoogleFonts.montserrat(
                           fontSize: 18, fontWeight: FontWeight.w500),
                     ),
