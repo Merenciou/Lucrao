@@ -14,10 +14,10 @@ class SettingsFunctions extends ChangeNotifier {
   double? percentageGainRace = 0;
   String? percentageGainRaceString = '0';
   List<String> gainMarginList = [
-    'Ótima',
-    'Boa',
-    'Razoável',
     'Ruim',
+    'Razoável',
+    'Boa',
+    'Ótima',
   ];
   String? gainMargin;
 
