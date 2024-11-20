@@ -7,16 +7,16 @@ class CustomNavbarController extends ChangeNotifier {
 
   routeSettings() {
     navItemIndex = 0;
-    ChangeNotifier();
+    notifyListeners();
   }
 
   routeHome() {
     navItemIndex = 1;
-    ChangeNotifier();
+    notifyListeners();
   }
 
   routeAlert() {
     navItemIndex = 2;
-    ChangeNotifier();
+    notifyListeners();
   }
 }
