@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "370753423546",
+    "project_id": "lucrao-app",
+    "storage_bucket": "lucrao-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370753423546:android:b1d95f8422c2fa7f545a83",
+        "android_client_info": {
+          "package_name": "com.example.lucrao"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2DesS0RsGKeEs6kErQN3eaBldhyBdl_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370753423546:android:f6faaea2e226ed08545a83",
+        "android_client_info": {
+          "package_name": "com.lucrao.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2DesS0RsGKeEs6kErQN3eaBldhyBdl_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
