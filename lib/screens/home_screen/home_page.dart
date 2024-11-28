@@ -4,7 +4,6 @@ import 'package:lucrao/components/charts/gain_monthly_chart.dart';
 import 'package:lucrao/components/charts/gain_weekly_chart.dart';
 import 'package:lucrao/components/navbar/custom_navbar.dart';
 import 'package:lucrao/controllers/chart_temporal_controller.dart';
-import 'package:lucrao/services/location.dart';
 
 const List<String> gainTemporal = <String>['Semanal', 'Mensal'];
 const List<String> gainAlternativeText = <String>[
@@ -30,11 +29,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var deviceData = MediaQuery.of(context);
     var screenSize = deviceData.size;
+
     return Scaffold(
       bottomNavigationBar: const CustomNavbar(),
       floatingActionButton: ElevatedButton(
         onPressed: () {
-          Location().determinePosition();
+          Navigator.of(context).pushNamed('/switchscreencasenull');
         },
         style: ElevatedButton.styleFrom(
             fixedSize: const Size(100, 100),
