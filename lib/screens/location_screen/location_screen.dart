@@ -71,14 +71,14 @@ class _LocationScreenState extends State<LocationScreen> {
                       fontWeight: FontWeight.w500),
                 ),
               ),
-              Text(location.startPosition == null
-                  ? 'Pressione o botão para iniciar'
-                  : 'Ponto inicial: ${location.startPosition!.latitude}, ${location.startPosition!.longitude}'),
-              Text(
-                location.endPosition == null
-                    ? 'Pressione o botão novamente para marcar o ponto final'
-                    : 'Ponto final: ${location.endPosition!.latitude}, ${location.endPosition!.longitude}',
-              ),
+              // Text(location.startPosition == null
+              //     ? 'Pressione o botão para iniciar'
+              //     : 'Ponto inicial: ${location.startPosition!.latitude}, ${location.startPosition!.longitude}'),
+              // Text(
+              //   location.endPosition == null
+              //       ? 'Pressione o botão novamente para marcar o ponto final'
+              //       : 'Ponto final: ${location.endPosition!.latitude}, ${location.endPosition!.longitude}',
+              // ),
             ],
           ),
         ),
