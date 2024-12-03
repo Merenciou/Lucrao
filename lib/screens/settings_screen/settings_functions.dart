@@ -41,7 +41,7 @@ class SettingsFunctions extends ChangeNotifier {
     notifyListeners();
   }
 
-  raceCalc() async {
+  raceCalc() {
     if (kmPerLiter != 0 &&
         kmTraveled != 0 &&
         fuelPrice != 0 &&
