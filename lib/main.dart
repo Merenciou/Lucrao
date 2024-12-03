@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucrao/controllers/services/custom_navbar_controller.dart';
 import 'package:lucrao/controllers/services/switch_screen_case_null_controller.dart';
-import 'package:lucrao/views/alerts_screen/alerts_page.dart';
+import 'package:lucrao/views/screens/alerts_screen/alerts_page.dart';
 import 'package:lucrao/views/screens/home_screen/home_page.dart';
 import 'package:lucrao/views/screens/location_screen/location_function.dart';
 import 'package:lucrao/views/screens/location_screen/location_null_screen.dart';
