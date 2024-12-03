@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lucrao/screens/settings_screen/settings_page.dart';
+import 'package:lucrao/views/settings_screen/settings_page.dart';
 
 class SettingsFunctions extends ChangeNotifier {
   static SettingsFunctions instance = SettingsFunctions();

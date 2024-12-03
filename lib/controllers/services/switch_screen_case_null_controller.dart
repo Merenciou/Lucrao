@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lucrao/controllers/autonomy_controller.dart';
-import 'package:lucrao/screens/location_screen/location_null_screen.dart';
-import 'package:lucrao/screens/location_screen/location_screen.dart';
+import 'package:lucrao/controllers/services/autonomy_controller.dart';
+import 'package:lucrao/views/location_screen/location_null_screen.dart';
+import 'package:lucrao/views/location_screen/location_screen.dart';
 
 class SwitchScreenCaseNull extends StatefulWidget {
   const SwitchScreenCaseNull({super.key});

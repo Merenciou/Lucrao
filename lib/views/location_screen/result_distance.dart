@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lucrao/screens/location_screen/location_function.dart';
-import 'package:lucrao/services/location.dart';
+import 'package:lucrao/views/location_screen/location_function.dart';
+import 'package:lucrao/controllers/services/location.dart';
 import 'package:provider/provider.dart';
 
 class ResultDistance extends StatefulWidget {

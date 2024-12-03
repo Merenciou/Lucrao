@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lucrao/components/navbar/custom_navbar.dart';
-import 'package:lucrao/screens/settings_screen/settings_functions.dart';
+import 'package:lucrao/views/components/navbar/custom_navbar.dart';
+import 'package:lucrao/views/settings_screen/settings_functions.dart';
 
 TextEditingController kmPerLiterController = TextEditingController();
 TextEditingController kmTraveledController = TextEditingController();

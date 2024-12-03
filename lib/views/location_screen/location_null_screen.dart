@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lucrao/controllers/autonomy_controller.dart';
+import 'package:lucrao/controllers/services/autonomy_controller.dart';
 
 final TextEditingController kmPerLiterNullScreenController =
     TextEditingController();

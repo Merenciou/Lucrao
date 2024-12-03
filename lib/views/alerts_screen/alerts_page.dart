@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lucrao/components/navbar/custom_navbar.dart';
+import 'package:lucrao/views/components/navbar/custom_navbar.dart';
 
 class AlertsPage extends StatefulWidget {
   const AlertsPage({super.key});

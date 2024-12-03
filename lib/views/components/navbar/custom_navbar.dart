@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lucrao/controllers/custom_navbar_controller.dart';
+import 'package:lucrao/controllers/services/custom_navbar_controller.dart';
 
 class CustomNavbar extends StatefulWidget {
   const CustomNavbar({super.key});
