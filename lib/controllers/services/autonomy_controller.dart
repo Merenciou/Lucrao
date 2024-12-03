@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:lucrao/views/location_screen/location_null_screen.dart';
+import 'package:lucrao/views/screens/location_screen/location_null_screen.dart';
 
 class AutonomyController {
   double? kmPerLiter;

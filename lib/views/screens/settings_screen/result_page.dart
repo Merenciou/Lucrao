@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucrao/views/components/navbar/custom_navbar.dart';
-import 'package:lucrao/views/settings_screen/settings_functions.dart';
+import 'package:lucrao/views/screens/settings_screen/settings_functions.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key});
