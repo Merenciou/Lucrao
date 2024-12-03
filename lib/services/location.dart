@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Location with ChangeNotifier {
   Position? startPosition;
@@ -53,13 +54,16 @@ class Location with ChangeNotifier {
     return await Geolocator.getCurrentPosition();
   }
 
-  void calculateDistance() {
+  void calculateDistance() async {
     if (startPosition != null && endPosition != null) {
       distanceInMeters = Geolocator.distanceBetween(
           startPosition!.latitude,
           startPosition!.longitude,
           endPosition!.latitude,
           endPosition!.longitude);
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setDouble('distanceinmeters', distanceInMeters);
+      notifyListeners();
     }
   }
 }
