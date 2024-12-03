@@ -3,6 +3,7 @@ import 'package:lucrao/controllers/custom_navbar_controller.dart';
 import 'package:lucrao/controllers/switch_screen_case_null_controller.dart';
 import 'package:lucrao/screens/alerts_screen/alerts_page.dart';
 import 'package:lucrao/screens/home_screen/home_page.dart';
+import 'package:lucrao/screens/location_screen/location_function.dart';
 import 'package:lucrao/screens/location_screen/location_null_screen.dart';
 import 'package:lucrao/screens/location_screen/location_screen.dart';
 import 'package:lucrao/screens/location_screen/result_distance.dart';
@@ -30,6 +31,9 @@ void main() async {
         ),
         ChangeNotifierProvider<Location>(
           create: (_) => Location(),
+        ),
+        ChangeNotifierProvider<LocationFunction>(
+          create: (_) => LocationFunction(),
         ),
       ],
       child: const MainApp(),

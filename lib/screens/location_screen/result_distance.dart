@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lucrao/screens/location_screen/location_function.dart';
 import 'package:lucrao/services/location.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,16 @@ class ResultDistance extends StatefulWidget {
 }
 
 class _ResultDistanceState extends State<ResultDistance> {
+  double? cust;
+  @override
+  void initState() {
+    LocationFunction.instance.getTravelDatas();
+    LocationFunction.instance.getCust().then((value) {
+      cust = value ?? 0;
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final location = context.watch<Location>();
@@ -74,7 +85,7 @@ class _ResultDistanceState extends State<ResultDistance> {
                         fontSize: 20, fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    'R\$ 50,00',
+                    'R\$ ${cust?.toStringAsFixed(2).replaceAll('.', ',') ?? 0}',
                     style: GoogleFonts.montserrat(
                         fontSize: 20, fontWeight: FontWeight.w400),
                   ),
