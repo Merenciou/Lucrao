@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lucrao/controllers/services/custom_navbar_controller.dart';
+import 'package:lucrao/controllers/services/sign_switch_controller.dart';
 import 'package:lucrao/controllers/services/switch_screen_case_null_controller.dart';
+import 'package:lucrao/views/components/buttons/button_switch_auth.dart';
 import 'package:lucrao/views/screens/alerts_screen/alerts_page.dart';
+import 'package:lucrao/views/screens/auth_screen/auth_screen.dart';
 import 'package:lucrao/views/screens/home_screen/home_page.dart';
 import 'package:lucrao/views/screens/location_screen/location_function.dart';
 import 'package:lucrao/views/screens/location_screen/location_null_screen.dart';
@@ -35,6 +38,9 @@ void main() async {
         ChangeNotifierProvider<LocationFunction>(
           create: (_) => LocationFunction(),
         ),
+        ChangeNotifierProvider<SignSwitchController>(
+          create: (_) => SignSwitchController(),
+        ),
       ],
       child: const MainApp(),
     ),
@@ -61,7 +67,7 @@ class MainApp extends StatelessWidget {
       },
       home: const Scaffold(
         backgroundColor: Color(0xFFF5F5F5),
-        body: HomePage(),
+        body: AuthScreen(),
       ),
     );
   }
