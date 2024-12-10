@@ -1,6 +1,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lucrao/controllers/services/auth_controller.dart';
 import 'package:lucrao/views/components/buttons/button_switch_auth.dart';
 
 TextEditingController emailController = TextEditingController();
@@ -19,29 +20,7 @@ class _SignIn extends State<SignIn> {
   final _formKey = GlobalKey<FormState>();
   bool signSwitch = true;
   bool showPassword = true;
-
-  void _signInAuth(context) async {
-    // final AuthService auth = AuthService();
-
-    // String email = emailController.text;
-    // String password = passwordController.text;
-
-    // User? user = await auth.signInWithEmailAndPassword(email, password);
-
-    // if (user != null) {
-    //   if (mounted) {
-    //     Warnings.snackBarLoginSucessful(context);
-    //   }
-    // } else if (authError == 'invalid-email') {
-    //   if (mounted) {
-    //     Warnings.snackBarEmailWrong(context);
-    //   }
-    // } else if (authError == 'invalid-credential') {
-    //   if (mounted) {
-    //     Warnings.snackBarPasswordWrong(context);
-    //   }
-    // }
-  }
+  final AuthController _authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +147,11 @@ class _SignIn extends State<SignIn> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      _signInAuth(context);
+                      String email = emailController.text;
+                      String password = passwordController.text;
+                      _authController.signInUser(
+                          email: email, password: password, context: context);
+
                       emailController.clear();
                       passwordController.clear();
                       passwordConfirmController.clear();
