@@ -40,7 +40,9 @@ class _LocationScreenState extends State<LocationScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                'Pressione o botão para iniciar!',
+                location.startPosition == null
+                    ? 'Pressione o botão para iniciar!'
+                    : 'Pressione novamente para finalizar!',
                 style: GoogleFonts.montserrat(fontSize: 16),
               ),
               ElevatedButton(
