@@ -31,6 +31,7 @@ class _ResultDistanceState extends State<ResultDistance> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
+            location.startPosition = null;
             Navigator.of(context).pushNamed('/locationpage');
           },
           icon: const Icon(Icons.arrow_back),
