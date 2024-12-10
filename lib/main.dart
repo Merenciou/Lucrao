@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lucrao/controllers/services/auth_controller.dart';
 import 'package:lucrao/controllers/services/custom_navbar_controller.dart';
 import 'package:lucrao/controllers/services/sign_switch_controller.dart';
 import 'package:lucrao/controllers/services/switch_screen_case_null_controller.dart';
 import 'package:lucrao/views/screens/alerts_screen/alerts_page.dart';
 import 'package:lucrao/views/screens/auth_screen/auth_screen.dart';
+import 'package:lucrao/views/screens/auth_screen/sign_in.dart';
 import 'package:lucrao/views/screens/home_screen/home_page.dart';
 import 'package:lucrao/views/screens/location_screen/location_function.dart';
 import 'package:lucrao/views/screens/location_screen/location_null_screen.dart';
@@ -25,6 +27,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthController(),
+        ),
         Provider<CustomNavbarController>(
           create: (_) => CustomNavbarController(),
         ),
@@ -46,15 +51,21 @@ void main() async {
   );
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
+        '/signinpage': (context) => const SignIn(),
         '/settingspage': (context) => const SettingsPage(),
         '/homepage': (context) => const HomePage(),
         '/alertspage': (context) => const AlertsPage(),
