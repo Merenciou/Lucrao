@@ -1,6 +1,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lucrao/controllers/services/auth_controller.dart';
 import 'package:lucrao/views/components/buttons/button_switch_auth.dart';
 // import 'package:lucrao/controllers/services/auth_service.dart';
 
@@ -21,28 +22,7 @@ class _SignUp extends State<SignUp> {
   bool signSwitch = true;
   bool showPassword = true;
 
-  void _signUpAuth(context) async {
-    // final AuthService auth = AuthService();
-
-    // String email = emailController.text;
-    // String password = passwordController.text;
-
-    // User? user = await auth.signUpWithEmailAndPassword(email, password);
-
-    // if (user != null) {
-    //   if (mounted) {
-    //     Warnings.snackBarSignUpSucessfull(context);
-    //   }
-
-    //   await UserController(name: nameController.text).setName();
-    //   nameController.clear();
-    // }
-    // if (authError == 'email-already-in-use') {
-    //   if (mounted) {
-    //     Warnings.snackBarEmailAlreadInUse(context);
-    //   }
-    // }
-  }
+  final AuthController _authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -234,7 +214,7 @@ class _SignUp extends State<SignUp> {
                                 color: Color(0xFF000000),
                               ),
                               floatingLabelStyle:
-                                  const TextStyle(color: Colors.red),
+                                  const TextStyle(color: Color(0xFF000000)),
                               filled: true,
                               fillColor: const Color(0xFFF5F5F5),
                               border: const OutlineInputBorder(
@@ -265,7 +245,16 @@ class _SignUp extends State<SignUp> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      _signUpAuth(context);
+                      String name = nameController.text;
+                      String email = emailController.text;
+                      String password = passwordController.text;
+
+                      _authController.signUpUser(
+                          name: name,
+                          email: email,
+                          password: password,
+                          context: context);
+
                       emailController.clear();
                       passwordController.clear();
                       passwordConfirmController.clear();
